@@ -1,0 +1,14 @@
+version: '3.3'
+services:
+  db:
+    image: postgres:12
+    restart: always
+    volumes:   
+       - /home/alexsp/sql-lab:/sql-data
+    environment:
+      POSTGRES_PASSWORD: example
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8081:8089

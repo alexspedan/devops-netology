@@ -25,7 +25,7 @@ services:
  
 ## Задача 2
 В БД из задачи 1:
-![](https://docs.google.com/document/d/1W-ys49sob4CNcjcDr-zQ-rdJgnQzQpKSztS1Zhvtu5E/edit#heading=h.57smf380kka5)
+![](![](https://github.com/alexspedan/devops-netology/blob/main/6.2.SQL/6.2.SQL.pics/task2.1.png))
 ```
 docker exec -it 86605d90c79b /bin/bash
 ```
@@ -48,11 +48,11 @@ id SERIAL PRIMARY KEY,
 заказ INT);
 ```
 предоставьте привилегии на все операции пользователю test-admin-user на таблицы БД test_db
-
+![](https://github.com/alexspedan/devops-netology/blob/main/6.2.SQL/6.2.SQL.pics/task2.2.png)
 создайте пользователя test-simple-user
 createuser test-simple-user;
 предоставьте пользователю test-simple-user права на SELECT/INSERT/UPDATE/DELETE данных таблиц БД test_db
-
+![](https://github.com/alexspedan/devops-netology/blob/main/6.2.SQL/6.2.SQL.pics/task2.3.png)
  
 Таблица orders:
 - id (serial primary key),
@@ -66,8 +66,10 @@ createuser test-simple-user;
 Приведите:
 - итоговый список БД после выполнения пунктов выше,
 - описание таблиц (describe)
+![](https://github.com/alexspedan/devops-netology/blob/main/6.2.SQL/6.2.SQL.pics/task2.4.png)
 - SQL-запрос для выдачи списка пользователей с правами над таблицами test_db
 - список пользователей с правами над таблицами test_db
+![](https://github.com/alexspedan/devops-netology/blob/main/6.2.SQL/6.2.SQL.pics/task2.5.png)
 
 ## Задача 3
 Используя SQL синтаксис - наполните таблицы следующими тестовыми данными:
@@ -116,10 +118,11 @@ INSERT INTO clients (id, ФИО, страна_проживания ) VALUES
 
 Используя SQL синтаксис:
 - вычислите количество записей для каждой таблицы
-
+![](https://github.com/alexspedan/devops-netology/blob/main/6.2.SQL/6.2.SQL.pics/task3.2.png)
 приведите в ответе:
 - запросы
 - результаты их выполнения.
+![](https://github.com/alexspedan/devops-netology/blob/main/6.2.SQL/6.2.SQL.pics/task3.3.png)
 
 ## Задача 4
 Часть пользователей из таблицы clients решили оформить заказы из таблицы orders.
@@ -141,7 +144,7 @@ UPDATE clients SET "заказ" = 4 WHERE id = 2;
 UPDATE clients SET "заказ" = 5 WHERE id = 3;
 
 ```
-![](https://keep.google.com/u/0/media/v2/1DVlPe7aKnhitULGCS6RS-uJoFi5eGpxrV_ytDj_3T1d4NUVgnPXH61N7A3acv3A/1HPT8IBw3FMi8w_Hl7x-wEp9SfBaHvdHsoipstxnXfsfQGT8g1v6OP3I5fC7SIjw?accept=image/gif,image/jpeg,image/jpg,image/png,image/webp,audio/aac&sz=462)
+![](https://github.com/alexspedan/devops-netology/blob/main/6.2.SQL/6.2.SQL.pics/task4.1..png)
 
 ## Задача 5
 Получите полную информацию по выполнению запроса выдачи всех пользователей из задачи 4 (используя директиву EXPLAIN).
@@ -151,7 +154,7 @@ UPDATE clients SET "заказ" = 5 WHERE id = 3;
 - cost - затраты на выполнение первой и всех операций 
 - rows - количество строк
 - width - размер строки
-![](https://keep.google.com/u/0/media/v2/1qvFfYdah3n78DIh7iAFwfVBecFju6QE3R9VRh2sVhA1d0mWt_OXImpHUfkpvk6U/1mLrwa8jzyu7zhAizv6V_IpudSTL0IRIfPpaYESPKqWzz6m0outUVcf4WFEDVvdE?accept=image/gif,image/jpeg,image/jpg,image/png,image/webp,audio/aac&sz=482)
+![](https://github.com/alexspedan/devops-netology/blob/main/6.2.SQL/6.2.SQL.pics/task5.1.png)
  
 ## Задача 6
 Создайте бэкап БД test_db и поместите его в volume, предназначенный для бэкапов (см. Задачу 1).

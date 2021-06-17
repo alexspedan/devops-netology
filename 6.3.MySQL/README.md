@@ -208,8 +208,9 @@ INSERT INTO orders_3 SELECT * FROM orders;
 DROP TABLE orders;
 RENAME TABLE orders_3 TO orders;
 SHOW PROFILES;
-![](https://github.com/alexspedan/devops-netology/blob/main/6.3.MySQL/task3.1.png)
 ```
+![](https://github.com/alexspedan/devops-netology/blob/main/6.3.MySQL/task3.1.png)
+
 ## Задача 4
 Изучите файл my.cnf в директории /etc/mysql.
 Измените его согласно ТЗ (движок InnoDB):

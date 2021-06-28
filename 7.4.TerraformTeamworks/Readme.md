@@ -30,3 +30,4 @@ https://github.com/alexspedan/TFConfigs/blob/main/7.4.Task2/atlantis.yaml
 Изучите как устроен модуль. Задумайтесь, будете ли в своем проекте использовать этот модуль или непосредственно ресурс ```aws_instance``` без помощи модуля?
 В рамках предпоследнего задания был создан ec2 при помощи ресурса ```aws_instance```. Создайте аналогичный инстанс при помощи найденного модуля.
 В качестве результата задания приложите ссылку на созданный блок конфигураций.
+https://github.com/alexspedan/devops-netology/tree/main/7.4.TerraformTeamworks/terrafrom

@@ -1,0 +1,5 @@
+path:
+    data: /var/lib/elasticsearch
+    logs: /var/log/elasticsearch
+node.name:    ${netology_test}
+network.host: ${127.0.0.1}

@@ -2,8 +2,27 @@
 
 ## Подготовка к выполнению
 1. Установите ansible версии 2.10 или выше.
+```
+ubuntu@ip-172-31-28-238:~$ ansible --version
+ansible [core 2.11.2]
+  config file = /etc/ansible/ansible.cfg
+  configured module search path = ['/home/ubuntu/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /home/ubuntu/.local/lib/python3.8/site-packages/ansible
+  ansible collection location = /home/ubuntu/.ansible/collections:/usr/share/ansible/collections
+  executable location = /home/ubuntu/.local/bin/ansible
+  python version = 3.8.5 (default, May 27 2021, 13:30:53) [GCC 9.3.0]
+  jinja version = 2.10.1
+  libyaml = True
+
+```
 2. Создайте свой собственный публичный репозиторий на github с произвольным именем.
+```
+https://github.com/alexspedan/Ansible-Sandbox
+```
 3. Скачайте [playbook](./playbook/) из репозитория с домашним заданием и перенесите его в свой репозиторий.
+```
+https://github.com/alexspedan/Ansible-Sandbox/tree/main/playbook
+```
 
 ## Основная часть
 1. Попробуйте запустить playbook на окружении из `test.yml`, зафиксируйте какое значение имеет факт `some_fact` для указанного хоста при выполнении playbook'a.

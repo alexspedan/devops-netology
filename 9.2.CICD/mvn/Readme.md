@@ -32,11 +32,11 @@ sonar-scanner \
   -Dsonar.coverage.exclusions=fail.py
  
 6. Смотрим результат в интерфейсе
-![](https://github.com/alexspedan/devops-netology/blob/main/6.2.SQL/6.2.SQL.pics/task2.3.png)
+![](https://github.com/alexspedan/devops-netology/blob/main/9.2.CICD/Screenshot%20from%202021-08-04%2021-36-11.png)
 7. Исправляем ошибки, которые он выявил(включая warnings)
 8. Запускаем анализатор повторно - проверяем, что QG пройдены успешно
 9. Делаем скриншот успешного прохождения анализа, прикладываем к решению ДЗ
-![](https://github.com/alexspedan/devops-netology/blob/main/6.2.SQL/6.2.SQL.pics/task2.3.png)
+![](https://github.com/alexspedan/devops-netology/blob/main/9.2.CICD/Screenshot%20from%202021-08-04%2021-48-55.png)
 ## Знакомство с Nexus
 ### Подготовка к выполнению
 1. Выполняем `docker pull sonatype/nexus3`

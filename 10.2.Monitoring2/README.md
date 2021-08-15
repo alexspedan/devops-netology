@@ -16,11 +16,11 @@
 
 2. Какие из ниже перечисленных систем относятся к push модели, а какие к pull? А может есть гибридные?
 
-    - Prometheus  pull
+    - Prometheus  pull кроме того можно использовать pushgateway для push
     - TICK pull
-    - Zabbix push
-    - VictoriaMetrics push
-    - Nagios push
+    - Zabbix push и pull 
+    - VictoriaMetrics СУБД
+    - Nagios push и pull 
 
 3. Склонируйте себе [репозиторий](https://github.com/influxdata/sandbox/tree/master) и запустите TICK-стэк, 
 используя технологии docker и docker-compose.
@@ -30,9 +30,14 @@
     - curl http://localhost:8086/ping
     - curl http://localhost:8888
     - curl http://localhost:9092/kapacitor/v1/ping
-
+```
+alexsp@alexsp-aimc:~/netology/sandbox/sandbox$ curl http://localhost:8086/ping
+alexsp@alexsp-aimc:~/netology/sandbox/sandbox$ curl http://localhost:8888
+<!DOCTYPE html><html><head><meta http-equiv="Content-type" content="text/html; charset=utf-8"><title>Chronograf</title><link rel="icon shortcut" href="/favicon.fa749080.ico"><link rel="stylesheet" href="/src.d80ed715.css"></head><body> <div id="react-root" data-basepath=""></div> <script src="/src.c278d833.js"></script> </body></html>alexsp@alexsp-aimc:~/netology/sandbox/sandbox$ curl http://localhost:8086/ping
+alexsp@alexsp-aimc:~/netology/sandbox/sandbox$ curl http://localhost:9092/kapacitor/v1/ping
+```
 А также скриншот веб-интерфейса ПО chronograf (`http://localhost:8888`). 
-
+![]()
 P.S.: если при запуске некоторые контейнеры будут падать с ошибкой - проставьте им режим `Z`, например
 `./data:/var/lib:Z`
 

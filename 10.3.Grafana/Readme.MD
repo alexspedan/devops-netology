@@ -33,12 +33,12 @@ sudo docker run -d --name=n-export -p 9100:9100 25661bfa8180```
 ```
 
 Решение домашнего задания - скриншот веб-интерфейса grafana со списком подключенных Datasource.
-![]()
+![](https://github.com/alexspedan/devops-netology/blob/main/10.3.Grafana/10.3.pic1.png)
 ## Задание 2
 Изучите самостоятельно ресурсы:
 - [promql-for-humans](https://timber.io/blog/promql-for-humans/#cpu-usage-by-instance)
 - [understanding prometheus cpu metrics](https://www.robustperception.io/understanding-machine-cpu-usage)
-
+![](https://github.com/alexspedan/devops-netology/blob/main/10.3.Grafana/10.3.GrafanaPic2.png)
 Создайте Dashboard и в ней создайте следующие Panels:
 - Утилизация CPU для nodeexporter (в процентах, 100-idle)
 ```100 * (1 - avg by(instance)(irate(node_cpu_seconds_total{cpu="0",mode="idle"}[5m])))```
@@ -47,7 +47,7 @@ sudo docker run -d --name=n-export -p 9100:9100 25661bfa8180```
 - Количество свободной оперативной памяти
 ```node_memory_Active_anon_bytes / on (instance) node_memory_MemTotal_bytes```
 - Количество места на файловой системе
-```node_filesystem_avail_bytes / node_filesystem_size_bytes```
+```node_filesystem_avail_bytes{fstype!~"tmpfs|fuse.lxcfs|squashfs"} / node_filesystem_size_bytes{fstype!~"tmpfs|fuse.lxcfs|squashfs"}```
 
 Для решения данного ДЗ приведите promql запросы для выдачи этих метрик, а также скриншот получившейся Dashboard.
 
@@ -55,7 +55,7 @@ sudo docker run -d --name=n-export -p 9100:9100 25661bfa8180```
 Создайте для каждой Dashboard подходящее правило alert (можно обратиться к первой лекции в блоке "Мониторинг").
 
 Для решения ДЗ - приведите скриншот вашей итоговой Dashboard.
-
+![](https://github.com/alexspedan/devops-netology/blob/main/10.3.Grafana/10.3.GrafanaPic4.png)
 ## Задание 4
 Сохраните ваш Dashboard.
 

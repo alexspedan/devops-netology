@@ -52,13 +52,13 @@ es-warm exited with code 78
 es-hot exited with code 78
 Проблема была связана с ограничением vm.max_map_count=65536 решается  sysctl -w vm.max_map_count=262144
 ```
-![]()
+![](https://github.com/alexspedan/devops-netology/blob/main/10.4.ELK/10.4.ELK.png)
 
 ## Задание 2
 
 Перейдите в меню [создания index-patterns  в kibana](http://localhost:5601/app/management/kibana/indexPatterns/create)
 и создайте несколько index-patterns из имеющихся.
-
+![](https://github.com/alexspedan/devops-netology/blob/main/10.4.ELK/10.4.ELK_2.png)
 Перейдите в меню просмотра логов в kibana (Discover) и самостоятельно изучите как отображаются логи и как производить 
 поиск по логам.
 

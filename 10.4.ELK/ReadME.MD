@@ -44,6 +44,16 @@ Filebeat следует сконфигурировать для отправки
 - docker-compose манифест (если вы не использовали директорию help)
 - ваши yml конфигурации для стека (если вы не использовали директорию help)
 
+```
+es-warm             | {"type": "server", "timestamp": "2021-08-19T14:59:46,280Z", "level": "INFO", "component": "o.e.x.m.p.NativeController", "cluster.name": "es-docker-cluster", "node.name": "es-warm", "message": "Native controller process has stopped - no new native processes can be started" }
+es-hot              | {"type": "server", "timestamp": "2021-08-19T14:59:46,286Z", "level": "INFO", "component": "o.e.n.Node", "cluster.name": "es-docker-cluster", "node.name": "es-hot", "message": "closed" }
+es-hot              | {"type": "server", "timestamp": "2021-08-19T14:59:46,290Z", "level": "INFO", "component": "o.e.x.m.p.NativeController", "cluster.name": "es-docker-cluster", "node.name": "es-hot", "message": "Native controller process has stopped - no new native processes can be started" }
+es-warm exited with code 78
+es-hot exited with code 78
+Проблема была связана с ограничением vm.max_map_count=65536 решается  sysctl -w vm.max_map_count=262144
+```
+![]()
+
 ## Задание 2
 
 Перейдите в меню [создания index-patterns  в kibana](http://localhost:5601/app/management/kibana/indexPatterns/create)

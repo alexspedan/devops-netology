@@ -26,7 +26,7 @@ sentry_sdk.init(
 )
 
 Для выполнения задания - пришлите скриншот меню Projects.
-![]()
+![](https://github.com/alexspedan/devops-netology/blob/main/10.5.Sentury/10.5.pic1.png)
 ## Задание 2
 
 Создайте python проект и нажмите `Generate sample event` для генерации тестового события.
@@ -37,7 +37,7 @@ sentry_sdk.init(
 
 Для выполнения задание предоставьте скриншот `Stack trace` из этого события и список событий проекта, 
 после нажатия `Resolve`.
-![]()
+![](https://github.com/alexspedan/devops-netology/blob/main/10.5.Sentury/10.5.pic2.png)
 ## Задание 3
 
 Перейдите в создание правил алёртинга.
@@ -54,7 +54,7 @@ sentry_sdk.init(
 Также проверьте проект в котором вы создаёте событие, возможно алёрт привязан к другому.
 
 Для выполнения задания - пришлите скриншот тела сообщения из оповещения на почте.
-![]()
+![](https://github.com/alexspedan/devops-netology/blob/main/10.5.Sentury/10.5.pic3.png)
 Дополнительно поэкспериментируйте с правилами алёртинга. 
 Выбирайте разные условия отправки и создавайте sample events. 
 

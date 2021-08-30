@@ -34,7 +34,6 @@
 2. Внести изменения по тексту из задания
 3. Подготовить Merge Requst, влить необходимые изменения в `master`, проверить, что сборка прошла успешно
 
-
 ### Tester
 
 Разработчики выполнили новый Issue, необходимо проверить валидность изменений:
@@ -42,6 +41,7 @@
 2. Закрыть Issue с комментарием об успешности прохождения, указав желаемый результат и фактически достигнутый
 
 ## Итог
+https://gitlab.com/alex.s.pedan/cicdnetology
 
 После успешного прохождения всех ролей - отправьте ссылку на ваш проект в гитлаб, как решение домашнего задания
 
@@ -56,3 +56,51 @@
 Выполненное домашнее задание пришлите ссылкой на .md-файл в вашем репозитории.
 
 ---
+
+-----------------------------------------------------------------------------
+Пример Метлякова
+-----------------------------------------------------------------------------
+image: docker:20.10.5
+services:
+    - docker:20.10.5-dind
+stages:
+    - build
+    - deploy
+build:
+    stage: build
+    script:
+        - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+        - docker build -t $CI_REGISTRY/aragast/netology-example/image:latest .
+    except:
+        - master
+build&deploy:
+    stage: deploy
+    script:
+        - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+        - docker build -t $CI_REGISTRY/aragast/netology-example/image:latest .
+        - docker push $CI_REGISTRY/aragast/netology-example/python-api:latest
+    only:
+        - master
+
+------------------------------------------------------------------------
+image: docker:20.10.5
+services:
+    - docker:20.10.5-dind
+stages:
+    - build
+    - deploy
+build:
+    stage: build
+    script:
+        - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+        - docker build -t $CI_REGISTRY/alex.s.pedan/cicdnetology/image:latest .
+    except:
+        - main
+build&deploy:
+    stage: deploy
+    script:
+        - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+        - docker build -t $CI_REGISTRY/alex.s.pedan/cicdnetology/image:latest .
+        - docker push $CI_REGISTRY/alex.s.pedan/cicdnetology/python-api:latest
+    only:
+        - main

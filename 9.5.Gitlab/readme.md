@@ -101,6 +101,122 @@ build&deploy:
     script:
         - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
         - docker build -t $CI_REGISTRY/alex.s.pedan/cicdnetology/image:latest .
-        - docker push $CI_REGISTRY/alex.s.pedan/cicdnetology/python-api:latest
+        - docker push $CI_REGISTRY/alex.s.pedan/cicdonaws/helloalpine:latest
     only:
         - main
+
+-------------------------------------------------------------------------
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  image: ubuntu
+  script:
+    - mkdir public
+    - touch public/index.html
+    - echo "<h1>New deployment<h1>" >> public/index.html
+  artifacts:
+    paths:
+      - index.html
+
+deploy:
+  stage: deploy
+  image: ubuntu
+  script:
+    - scp -o StrictHostKeyChecking=no index.html -i $SSH_PRIVATE_KEY ubuntu@3.23.79.85:/usr/share/nginx/html
+    - ssh -o StrictHostKeyChecking=no ubuntu@3.23.79.85 -i $SSH_PRIVATE_KEY "cd /home/bitnami/htdocs; touch foo.txt; unzip public.zip"
+
+
+-------------------------------------------------------------
+stages:
+    -deploy
+deploy:
+    stage: deploy
+    script:
+        - apache2 install
+
+-------------------------------------------------------------
+image: docker:20.10.5
+services:
+    - docker:20.10.5-dind
+stages:
+    - build
+    - deploy
+
+build:
+    stage: build
+
+    script:
+        - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+        - docker build -t $CI_REGISTRY/alex.s.pedan/cicdnetology/hellowgcp:latest .
+    except:
+        - main
+build&deploy:
+    stage: deploy
+
+    script:
+        - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+        - docker build -t $CI_REGISTRY/alex.s.pedan/cicdnetology/hellowgcp:latest .
+        - docker push $CI_REGISTRY/alex.s.pedan/cicdnetology/hellowgcp:latest
+    only:
+        - main
+
+## How to deploy:
+Чтобы деплоилось с мастера:
+    only:
+        - master
+- в этом случае простой нейминг
+с
+    only:
+        - application-branch_name
+должен быть внешний роут
+
+Собирать аппликуху нужно темплейтом
+
+Как работает пример:
+1. 
+
+
+
+stages:
+    -docker
+services:
+    - docker:dind
+docker-job
+    stage: docker
+    image: docker:dind
+    scripts:
+        - docker build .
+
+
+
+
+
+-----------------------------------------------------
+
+stages: 
+    - build
+
+docker-build:
+    image: docker:latest
+    stage: build
+    services:
+        - docker:dind
+    befor_script:
+        - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+#        - docker build -t $CI_REGISTRY/alex.s.pedan/cicdnetology/hellowgcp:latest .
+#    except:
+#        - main
+# build&deploy:
+#    stage: deploy
+
+    script:
+        - docker build --pull -t "$CI_REGISTRY_IMAGE" .
+        - docker push "$CI_REGISTRY_IMAGE"
+#    only:
+#        - main
+
+--------------------------------------------------------------------
+

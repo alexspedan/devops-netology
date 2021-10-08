@@ -12,19 +12,20 @@
 - Маршрутизация запросов к нужному сервису на основе конфигурации
 - Возможность проверки аутентификационной информации в запросах
 - Обеспечение терминации HTTPS
-| Products | Kong | Tyk.io | APIGee | AWS Gateway | Azure Gateway | Express Gateway | Istio |
-|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| Deployment Complexity | Single node |	Single node | Many nodes with different roles | Cloud vendor PaaS | Cloud vendor PaaS | Flexible | Flexible |
-| Data Stores Required | Cassandra or Postgres | Redis | Cassandra, Zookeeper, and Postgres | Cloud vendor PaaS | Cloud vendor PaaS | Redis | Redis |
-| Open Source |Yes, Apache 2.0 | Yes, MPL |	No | No | No | Yes, Apache 2.0 | Yes |
-|Core Technology | NGINX/Lua | GoLang |	Java |	Not open |	Not open | Node.js Express | Spring, ASP NET, Flask |
-|On Premise | Yes | Yes | Yes | No | No | Yes | Yes |
-| Community/Extensions | Large | Medium | No | No | No | Small | Yes |
-| Authorization/API Keys | Yes |Yes | Yes | Yes | Yes | Yes | Yes |
-| Rate Limiting | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
-| Data Transformation | HTTP | HTTP | Yes | No | No | No | Yes |
-| Integrated Billing | No | No | Yes | No | No | No | No |
-| HTTPS termination	| HTTP | HTTP | Yes | No | No | No | Yes |
+
+> | Products | Kong | Tyk.io | APIGee | AWS Gateway | Azure Gateway | Express Gateway | Istio |
+> |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+> | Deployment Complexity | Single node |	Single node | Many nodes with different roles | Cloud vendor PaaS | Cloud vendor PaaS | Flexible | Flexible |
+> | Data Stores Required | Cassandra or Postgres | Redis | Cassandra, Zookeeper, and Postgres | Cloud vendor PaaS | Cloud vendor PaaS | Redis | Redis |
+> | Open Source |Yes, Apache 2.0 | Yes, MPL |	No | No | No | Yes, Apache 2.0 | Yes |
+> |Core Technology | NGINX/Lua | GoLang |	Java |	Not open |	Not open | Node.js Express | Spring, ASP NET, Flask |
+> |On Premise | Yes | Yes | Yes | No | No | Yes | Yes |
+> | Community/Extensions | Large | Medium | No | No | No | Small | Yes |
+> | Authorization/API Keys | Yes |Yes | Yes | Yes | Yes | Yes | Yes |
+> | Rate Limiting | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
+> | Data Transformation | HTTP | HTTP | Yes | No | No | No | Yes |
+> | Integrated Billing | No | No | Yes | No | No | No | No |
+> | HTTPS termination	| HTTP | HTTP | Yes | No | No | No | Yes |
 
 Обоснуйте свой выбор.
 Я бы выбрал Istio как производительный продускт с бесплатной лицензией.

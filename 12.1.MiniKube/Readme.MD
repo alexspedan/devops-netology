@@ -112,7 +112,7 @@ alexsp@ipa:~/devops-netology/12.1.Minikube/minik8s$ minikube service hello-node
 | default   | hello-node |        8080 | http://192.168.49.2:30602 |
 |-----------|------------|-------------|---------------------------|
 ```
-![]()
+![](https://github.com/alexspedan/devops-netology/blob/main/12.1.MiniKube/12.1.png)
 
 ## Задача 3: Установить kubectl
 

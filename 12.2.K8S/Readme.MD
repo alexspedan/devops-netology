@@ -11,7 +11,7 @@
  * наличие deployment можно проверить командой kubectl get deployment
  * наличие подов можно проверить командой kubectl get pods
   ```
- kubectl apply -f https://github.com/alexspedan/devops-netology/blob/main/12.2.K8S/apiVersion:%20apps/hello-node-deployment.yaml
+ kubectl apply -f https://raw.githubusercontent.com/alexspedan/devops-netology/main/12.2.K8S/apiVersion%3A%20apps/hello-node-deployment.yaml
  kubectl get deployments
  kubectl get pods
   ```

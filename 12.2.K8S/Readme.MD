@@ -15,7 +15,16 @@
  kubectl get deployments
  kubectl get pods
   ```
-
+```
+deployment.apps/hello-node-deployment created
+root@worker2:/home/tester_aimc# kubectl get deployments
+NAME                    READY   UP-TO-DATE   AVAILABLE   AGE
+hello-node-deployment   2/2     2            2           34s
+root@worker2:/home/tester_aimc# kubectl get pods
+NAME                                     READY   STATUS    RESTARTS   AGE
+hello-node-deployment-84b577b4bc-txnn8   1/1     Running   0          48s
+hello-node-deployment-84b577b4bc-wh78l   1/1     Running   0          48s
+```
 
 ## Задание 2: Просмотр логов для разработки
 Разработчикам крайне важно получать обратную связь от штатно работающего приложения и, еще важнее, об ошибках в его работе. 

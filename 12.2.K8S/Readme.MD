@@ -34,15 +34,31 @@ hello-node-deployment-84b577b4bc-wh78l   1/1     Running   0          48s
  * создан новый токен доступа для пользователя
  * пользователь прописан в локальный конфиг (~/.kube/config, блок users)
  * пользователь может просматривать логи подов и их конфигурацию (kubectl logs pod <pod_id>, kubectl describe pod <pod_id>)
-
-
+```
+kubectl create serviceaccount developer
+kubectl create clusterrole developer --verb=get --verb=list --verb=watch --resource=pods
+kubectl create clusterrolebinding developer --serviceaccount=default:developer --clusterrole=developer
+TOKEN=$(kubectl describe secrets "$(kubectl describe serviceaccount developer | grep -i Tokens | awk '{print $2}')" | grep token: | awk '{print $2}')
+kubectl config set-credentials tester --token=$TOKEN
+kubectl config set-context podreader --cluster=kubernetes --user=tester
+kubectl config use-context podreader
+```
 ## Задание 3: Изменение количества реплик 
 Поработав с приложением, вы получили запрос на увеличение количества реплик приложения для нагрузки. Необходимо изменить запущенный deployment, увеличив количество реплик до 5. Посмотрите статус запущенных подов после увеличения реплик. 
 
 Требования:
  * в deployment из задания 1 изменено количество реплик на 5
+ kubectl scale --replicas=5 -f https://raw.githubusercontent.com/alexspedan/devops-netology/main/12.2.K8S/apiVersion%3A%20apps/hello-node-deployment.yaml
  * проверить что все поды перешли в статус running (kubectl get pods)
-
+```
+# kubectl get pods
+NAME                                     READY   STATUS    RESTARTS   AGE
+hello-node-deployment-84b577b4bc-2vgq7   1/1     Running   0          16s
+hello-node-deployment-84b577b4bc-jrbwr   1/1     Running   0          16s
+hello-node-deployment-84b577b4bc-q4btj   1/1     Running   0          16s
+hello-node-deployment-84b577b4bc-txnn8   1/1     Running   0          8m13s
+hello-node-deployment-84b577b4bc-wh78l   1/1     Running   0          8m13s
+```
 ---
 
 ### Как оформить ДЗ?

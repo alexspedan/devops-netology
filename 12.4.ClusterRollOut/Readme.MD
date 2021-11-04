@@ -19,8 +19,9 @@
 Выполненное домашнее задание пришлите ссылкой на .md-файл в вашем репозитории.
 
 ---
-1. Configure all hosts
-add
+
+1. Configure all hosts at GCP
+add to Global Vars
 ansible_connection: ssh 
 ansible_ssh_user: alexsp
 2. Test inventory for configured hosts

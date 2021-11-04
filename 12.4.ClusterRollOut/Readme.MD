@@ -35,8 +35,8 @@ ssh tester_aimc@34.125.126.57
 добавил ключ по мануалу
 https://souvikhaldar.medium.com/how-to-add-the-public-ssh-key-to-a-gcp-virtual-machine-ef5703e8e596
 
-## проверяю ансибл
+# проверяю ансибл
 ansible -i ~/study/Netology/devops-netology/12.4.ClusterRollOut/repo/kubespray/inventory/mycluster/inventory.ini all -m ping
 юзер задается в глобал варс алл
-## Запускаю плейбук
+# Запускаю плейбук
 ansible-playbook -i inventory/mycluster/hosts.yaml  --become --become-user=root cluster.yml

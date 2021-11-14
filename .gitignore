@@ -32,3 +32,8 @@ override.tf.json
 # Ignore CLI configuration files
 .terraformrc
 terraform.rc
+12.4.ClusterRollOut/repo/kubespray/
+12.4.ClusterRollOut/Readme.MD
+12.4.ClusterRollOut/repo/kubernetes-for-beginners/
+12.4.ClusterRollOut/Readme.MD
+12.4.ClusterRollOut/Readme.MD

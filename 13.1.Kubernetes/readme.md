@@ -4,10 +4,10 @@
 - под содержит в себе 3 контейнера — фронтенд, бекенд, базу;
         Собираю контейнеры в докер репозиторий из папки с примером
 Backend
-        docker build -t backendtest .
-        docker login
-        docker tag backendtest:latest alexspedan/backendtest:latest
-        docker push alexspedan/backendtest:latest
+>        docker build -t backendtest .
+>        docker login
+>        docker tag backendtest:latest alexspedan/backendtest:latest
+>        docker push alexspedan/backendtest:latest
 Frontend
         docker build -t frontendtest .
         docker login

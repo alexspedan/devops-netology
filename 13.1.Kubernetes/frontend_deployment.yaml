@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontendtest-service
+spec:
+  selector:
+    app: frontendtest
+  ports:
+  - protocol: "TCP"
+    port: 8000
+    targetPort: 8000
+  type: LoadBalancer
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontendtest
+spec:
+  selector:
+    matchLabels:
+      app: frontendtest
+  replicas: 5
+  template:
+    metadata:
+      labels:
+        app: frontendtest
+    spec:
+      containers:
+      - name: frontendtest
+        image: frontendtest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8000

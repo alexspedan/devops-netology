@@ -9,14 +9,14 @@ Backend
 >        docker tag backendtest:latest alexspedan/backendtest:latest
 >        docker push alexspedan/backendtest:latest
 Frontend
-        docker build -t frontendtest .
-        docker login
-        docker tag frontendtest:latest alexspedan/frontendtest:latest
-        docker push alexspedan/frontendtest:latest
+>        docker build -t frontendtest .
+>        docker login
+>        docker tag frontendtest:latest alexspedan/frontendtest:latest
+>        docker push alexspedan/frontendtest:latest
 - регулируется с помощью deployment фронтенд и бекенд;
-        Создаю deployment для контейнеров
+>        Создаю deployment для контейнеров
 - база данных — через statefulset.
-        Добавляю бд statefulset
+>        Добавляю бд statefulset
 ## Задание 2: подготовить конфиг для production окружения
 Следующим шагом будет запуск приложения в production окружении. Требования сложнее:
 

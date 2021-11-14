@@ -19,27 +19,24 @@
 Выполненное домашнее задание пришлите ссылкой на .md-файл в вашем репозитории.
 
 ---
-1. Configure all hosts
-add
+
+1. Configure all hosts at GCP
+add to Global Vars
 ansible_connection: ssh 
 ansible_ssh_user: alexsp
 2. Test inventory for configured hosts
 ansible -i ~/study/Netology/devops-netology/12.4.ClusterRollOut/repo/kubespray/inventory/mycluster/inventory.ini all -m ping
 study/Netology/devops-netology/12.4.ClusterRollOut/repo/kubespray/inventory/mycluster/inventory.ini
-+ master 34.125.94.4                34.125.71.31
-+ node 1 34.125.244.80              34.125.112.180
-+ worker1 34.125.126.57             34.125.127.206
-+ worker 2 34.125.244.210           34.125.192.118
++ master 34.125.94.4
++ node 1 34.125.244.80
++ worker1 34.125.126.57
++ worker 2 34.125.244.210
 ssh tester_aimc@34.125.126.57
 добавил ключ по мануалу
 https://souvikhaldar.medium.com/how-to-add-the-public-ssh-key-to-a-gcp-virtual-machine-ef5703e8e596
 
-## проверяю ансибл
+#### проверяю ансибл
 ansible -i ~/study/Netology/devops-netology/12.4.ClusterRollOut/repo/kubespray/inventory/mycluster/inventory.ini all -m ping
 юзер задается в глобал варс алл
-на 192.168.1.11
-ansible -i /home/alexsp/netology/devops-netology/12.4.cluster/kubespray/inventory/mycluster/inventory.ini all -m ping
-
-## Запускаю плейбук
+#### Запускаю плейбук
 ansible-playbook -i inventory/mycluster/hosts.yaml  --become --become-user=root cluster.yml
-ansible-playbook -i inventory/mycluster/inventory.ini  --become --become-user=root cluster.yml

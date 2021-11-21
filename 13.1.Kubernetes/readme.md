@@ -15,8 +15,13 @@ Frontend
 >        docker push alexspedan/frontendtest:latest
 - регулируется с помощью deployment фронтенд и бекенд;
 >        Создаю deployment для контейнеров
+>        kubectl apply -f https://raw.githubusercontent.com/alexspedan/devops-netology/main/13.1.Kubernetes/backend_deployment.yaml
+>        kubectl apply -f https://raw.githubusercontent.com/alexspedan/devops-netology/main/13.1.Kubernetes/frontend_deployment.yaml
+или kubectl create deployment backendtest --image=alexspedan/backendtest:latest
+или kubectl create deployment frontendtest --image=alexspedan/frontendtest:latest
 - база данных — через statefulset.
 >        Добавляю бд statefulset
+>        
 ## Задание 2: подготовить конфиг для production окружения
 Следующим шагом будет запуск приложения в production окружении. Требования сложнее:
 

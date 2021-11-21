@@ -36,7 +36,26 @@ ssh tester_aimc@34.125.126.57
 https://souvikhaldar.medium.com/how-to-add-the-public-ssh-key-to-a-gcp-virtual-machine-ef5703e8e596
 
 #### проверяю ансибл
-ansible -i ~/study/Netology/devops-netology/12.4.ClusterRollOut/repo/kubespray/inventory/mycluster/inventory.ini all -m ping
+
 юзер задается в глобал варс алл
 #### Запускаю плейбук
-ansible-playbook -i inventory/mycluster/hosts.yaml  --become --become-user=root cluster.yml
+ansible-playbook -i inventory/mycluster/inventory.ini  --become --become-user=root cluster.yml
+
+
+
+
+
+
+
+
+
+Если 
+TASK [kubernetes/node : Modprobe nf_conntrack_ipv4] ****************************************************************
+fatal: [node3]: FAILED! => {"changed": false, "msg": "modprobe: FATAL: Module nf_conntrack_ipv4 not found in directory /lib/modules/4.19.0-18-cloud-amd64\n", "name": "nf_conntrack_ipv4", "params": "", "rc": 1, "state": "present", "stderr": "modprobe: FATAL: Module nf_conntrack_ipv4 not found in directory /lib/modules/4.19.0-18-cloud-amd64\n", "stderr_lines": ["modprobe: FATAL: Module nf_conntrack_ipv4 not found in directory /lib/modules/4.19.0-18-cloud-amd64"], "stdout": "", "stdout_lines": []}
+...ignoring
+fatal: [node2]: FAILED! => {"changed": false, "msg": "modprobe: FATAL: Module nf_conntrack_ipv4 not found in directory /lib/modules/4.19.0-18-cloud-amd64\n", "name": "nf_conntrack_ipv4", "params": "", "rc": 1, "state": "present", "stderr": "modprobe: FATAL: Module nf_conntrack_ipv4 not found in directory /lib/modules/4.19.0-18-cloud-amd64\n", "stderr_lines": ["modprobe: FATAL: Module nf_conntrack_ipv4 not found in directory /lib/modules/4.19.0-18-cloud-amd64"], "stdout": "", "stdout_lines": []}
+...ignoring
+fatal: [node1]: FAILED! => {"changed": false, "msg": "modprobe: FATAL: Module nf_conntrack_ipv4 not found in directory /lib/modules/4.19.0-18-cloud-amd64\n", "name": "nf_conntrack_ipv4", "params": "", "rc": 1, "state": "present", "stderr": "modprobe: FATAL: Module nf_conntrack_ipv4 not found in directory /lib/modules/4.19.0-18-cloud-amd64\n", "stderr_lines": ["modprobe: FATAL: Module nf_conntrack_ipv4 not found in directory /lib/modules/4.19.0-18-cloud-amd64"], "stdout": "", "stdout_lines": []}
+...ignoring
+fatal: [node4]: FAILED! => {"changed": false, "msg": "modprobe: FATAL: Module nf_conntrack_ipv4 not found in directory /lib/modules/4.19.0-18-cloud-amd64\n", "name": "nf_conntrack_ipv4", "params": "", "rc": 1, "state": "present", "stderr": "modprobe: FATAL: Module nf_conntrack_ipv4 not found in directory /lib/modules/4.19.0-18-cloud-amd64\n", "stderr_lines": ["modprobe: FATAL: Module nf_conntrack_ipv4 not found in directory /lib/modules/4.19.0-18-cloud-amd64"], "stdout": "", "stdout_lines": []}
+...ignoring

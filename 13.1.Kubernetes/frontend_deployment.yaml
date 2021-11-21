@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: backendtest-service
+  name: frontendtest-service
 spec:
   selector:
-    app: backendtest
+    app: frontendtest
   ports:
   - protocol: "TCP"
-    port: 9000
-    targetPort: 9000
+    port: 8000
+    targetPort: 8000
   type: LoadBalancer
 
 ---
@@ -16,20 +16,20 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backendtest
+  name: frontendtest
 spec:
   selector:
     matchLabels:
-      app: backendtest
+      app: frontendtest
   replicas: 5
   template:
     metadata:
       labels:
-        app: backendtest
+        app: frontendtest
     spec:
       containers:
-      - name: backendtest
-        image: backendtest
+      - name: frontendtest
+        image: frontendtest
         imagePullPolicy: IfNotPresent
         ports:
-        - containerPort: 9000
+        - containerPort: 8000

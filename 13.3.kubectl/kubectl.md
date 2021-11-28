@@ -4,11 +4,11 @@
 * сделайте запросы к бекенду;
 * сделайте запросы к фронту;
 * подключитесь к базе данных.
-![]()
+![](https://github.com/alexspedan/devops-netology/raw/main/13.3.kubectl/pic1.png)
 ## Задание 2: ручное масштабирование
 При работе с приложением иногда может потребоваться вручную добавить пару копий. Используя команду kubectl scale, попробуйте увеличить количество бекенда и фронта до 3. После уменьшите количество копий до 1. Проверьте, на каких нодах оказались копии после каждого действия (kubectl describe).
-![]()
-![]()
+![](https://github.com/alexspedan/devops-netology/raw/main/13.3.kubectl/pic2.png)
+![](https://github.com/alexspedan/devops-netology/raw/main/13.3.kubectl/pic3.png)
 ---
 
 ### Как оформить ДЗ?

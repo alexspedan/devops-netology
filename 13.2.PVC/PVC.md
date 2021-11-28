@@ -17,5 +17,5 @@ https://raw.githubusercontent.com/alexspedan/devops-netology/main/13.1.Kubernete
 persistentvolume/postgres-pv configured
 * фронтенды тоже подключаются к этому же PV с таким же режимом;
 * файлы, созданные бекендом, должны быть доступны фронту.
-
+![](https://github.com/alexspedan/devops-netology/raw/main/13.2.PVC/13.2p3.png)
 ---

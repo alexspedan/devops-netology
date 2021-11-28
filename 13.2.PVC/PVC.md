@@ -13,8 +13,8 @@ https://raw.githubusercontent.com/alexspedan/devops-netology/main/13.1.Kubernete
 Поработав на stage, доработки нужно отправить на прод. В продуктиве у нас контейнеры крутятся в разных подах, поэтому потребуется PV и связь через PVC. Сам PV должен быть связан с NFS сервером. Требования:
 * все бекенды подключаются к одному PV в режиме ReadWriteMany;
 Меняю accessModes: на ReadWriteMany
-``` alexsp@master1:~$ kubectl apply -f https://raw.githubusercontent.com/alexspedan/kubernetes_postgres_statefulset/master/storage.yml
-persistentvolume/postgres-pv configured ```
+>.  alexsp@master1:~$ kubectl apply -f https://raw.githubusercontent.com/alexspedan/kubernetes_postgres_statefulset/master/storage.yml
+persistentvolume/postgres-pv configured
 * фронтенды тоже подключаются к этому же PV с таким же режимом;
 * файлы, созданные бекендом, должны быть доступны фронту.
 

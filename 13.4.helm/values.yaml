@@ -1,0 +1,24 @@
+replicaCount: 1
+
+image:
+  repository: msathepivotal/myfirst-boot-on-docker
+  tag: latest
+  pullPolicy: IfNotPresent
+
+containerPort: 8080
+
+nameOverride: ""
+fullnameOverride: ""
+
+service:
+  type: LoadBalancer
+  port: 80
+
+ingress:
+  enabled: false
+  annotations: {}
+
+  paths: []
+  hosts
+    - chart-example.local
+  tls: []

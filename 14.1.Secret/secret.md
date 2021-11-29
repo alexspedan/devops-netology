@@ -55,6 +55,8 @@ kubectl apply -f domain-cert.yml
 ```
 ![](https://github.com/alexspedan/devops-netology/blob/main/14.1.Secret/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202021-11-27%20%D0%B2%2020.21.49.png)
 ![](https://github.com/alexspedan/devops-netology/blob/main/14.1.Secret/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202021-11-27%20%D0%B2%2020.20.37.png)
+![](https://github.com/alexspedan/devops-netology/raw/main/14.1.Secret/14.1.picadd.png)
+![](https://github.com/alexspedan/devops-netology/raw/main/14.1.Secret/14.1.picadd2.png)
 ## Задача 2 (*): Работа с секретами внутри модуля
 
 Выберите любимый образ контейнера, подключите секреты и проверьте их доступность

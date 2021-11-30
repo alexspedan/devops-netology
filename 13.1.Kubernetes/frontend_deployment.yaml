@@ -40,3 +40,4 @@ spec:
       - name: pv-data
         persistentVolumeClaim:
           claimName: postgres-pv-claim
+      

@@ -16,6 +16,7 @@ kubectl config set-context --current --namespace=staging
 Меняю accessModes: на ReadWriteMany
 >.  alexsp@master1:~$ kubectl apply -f https://raw.githubusercontent.com/alexspedan/kubernetes_postgres_statefulset/master/storage.yml
 persistentvolume/postgres-pv configured
+![](https://github.com/alexspedan/devops-netology/raw/main/13.2.PVC/13.2N2.png)
 * фронтенды тоже подключаются к этому же PV с таким же режимом;
 kubectl apply -f 
 * файлы, созданные бекендом, должны быть доступны фронту.

@@ -2,10 +2,12 @@
 В stage окружении часто возникает необходимость отдавать статику бекенда сразу фронтом. Проще всего сделать это через общую папку. Требования:
 * в поде подключена общая папка между контейнерами (например, /static);
 Обновляю deployments для frontend и backend
-https://raw.githubusercontent.com/alexspedan/devops-netology/main/13.1.Kubernetes/frontend_deployment.yaml
-https://raw.githubusercontent.com/alexspedan/devops-netology/main/13.1.Kubernetes/backend_deployment.yaml
+kubectl apply -f https://raw.githubusercontent.com/alexspedan/devops-netology/main/13.2.PVC/PVC.yaml -n staging
+перейдем в namespace staging
+kubectl config set-context --current --namespace=staging
 
 * после записи чего-либо в контейнере с беком файлы можно получить из контейнера с фронтом.
+
 ![](https://github.com/alexspedan/devops-netology/raw/main/13.2.PVC/13.2p1.png)
 ![](https://github.com/alexspedan/devops-netology/raw/main/13.2.PVC/13.2p2.png)
 

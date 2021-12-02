@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: frontend&backend
-  namespace: stage
+  namespace: staging
   labels:
     app: local
 spec:

@@ -2,7 +2,7 @@
 В stage окружении часто возникает необходимость отдавать статику бекенда сразу фронтом. Проще всего сделать это через общую папку. Требования:
 * в поде подключена общая папка между контейнерами (например, /static);
 Обновляю deployments для frontend и backend
-kubectl apply -f https://raw.githubusercontent.com/alexspedan/devops-netology/main/13.2.PVC/PVC.yaml -n staging
+kubectl apply -f https://raw.githubusercontent.com/alexspedan/devops-netology/main/13.2.PVC/pvc.yaml -n staging
 перейдем в namespace staging
 kubectl config set-context --current --namespace=staging
 
@@ -18,6 +18,7 @@ kubectl config set-context --current --namespace=staging
 >.  alexsp@master1:~$ kubectl apply -f https://raw.githubusercontent.com/alexspedan/kubernetes_postgres_statefulset/master/storage.yml
 persistentvolume/postgres-pv configured
 * фронтенды тоже подключаются к этому же PV с таким же режимом;
+kubectl apply -f 
 * файлы, созданные бекендом, должны быть доступны фронту.
 ![](https://github.com/alexspedan/devops-netology/raw/main/13.2.PVC/13.2.p3.png)
 ---

@@ -8,8 +8,7 @@ kubectl config set-context --current --namespace=staging
 
 * после записи чего-либо в контейнере с беком файлы можно получить из контейнера с фронтом.
 
-![](https://github.com/alexspedan/devops-netology/raw/main/13.2.PVC/13.2p1.png)
-![](https://github.com/alexspedan/devops-netology/raw/main/13.2.PVC/13.2p2.png)
+![](https://github.com/alexspedan/devops-netology/raw/main/13.2.PVC/13.2N1.png)
 
 ## Задание 2: подключить общую папку для прода
 Поработав на stage, доработки нужно отправить на прод. В продуктиве у нас контейнеры крутятся в разных подах, поэтому потребуется PV и связь через PVC. Сам PV должен быть связан с NFS сервером. Требования:

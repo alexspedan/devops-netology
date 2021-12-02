@@ -1,12 +1,37 @@
-    ---
-    kind: PersistentVolumeClaim
-    apiVersion: v1
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend&backend
+  namespace: stage
+  labels:
+    app: local
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: local
+  template:
     metadata:
-      name: test-dynamic-volume-claim
+      labels:
+        app: local
     spec:
-      storageClassName: "nfs"
-      accessModes:
-        - ReadWriteOnce
-      resources:
-        requests:
-          storage: 200Mi
+      containers:
+      - name: frontend
+        image: "alexspedan/netologyfrontend:latest"
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - mountPath: /static
+          name: local
+      - name: backend
+        image: "alexspedan/netologyfrontend:latest"
+        ports:
+        - containerPort: 9000
+        volumeMounts:
+        - mountPath: /static
+          name: local
+
+      volumes:
+      - name: local
+        emptyDir: {}

@@ -18,7 +18,8 @@ kubectl config set-context --current --namespace=staging
 persistentvolume/postgres-pv configured
 ![](https://github.com/alexspedan/devops-netology/raw/main/13.2.PVC/13.2N2.png)
 * фронтенды тоже подключаются к этому же PV с таким же режимом;
-kubectl apply -f 
+kubectl apply -f https://raw.githubusercontent.com/alexspedan/devops-netology/main/13.2.PVC/nfs.yaml -n production
 * файлы, созданные бекендом, должны быть доступны фронту.
-![](https://github.com/alexspedan/devops-netology/raw/main/13.2.PVC/13.2.p3.png)
+![](https://github.com/alexspedan/devops-netology/raw/main/13.2.PVC/13.2N3.png)
+![](https://github.com/alexspedan/devops-netology/raw/main/13.2.PVC/13.2N4.png)
 ---

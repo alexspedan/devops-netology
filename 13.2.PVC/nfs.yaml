@@ -59,8 +59,8 @@ spec:
             value: postgres://postgres:postgres@db-srv:5432/news
         volumeMounts:
           - mountPath: "/dynamic"
-            name: pvc-front-back-volume
+            name: nfs
       volumes:
-       - name: pvc-front-back-volume
+       - name: nfs
          persistentVolumeClaim:
-           claimName: pvc-front-back
+           claimName: nfs-pvc

@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend&backend
+  name: frontend-backend
   namespace: staging
   labels:
     app: local
@@ -25,7 +25,7 @@ spec:
         - mountPath: /static
           name: local
       - name: backend
-        image: "alexspedan/netologyfrontend:latest"
+        image: "alexspedan/netologybackend:latest"
         ports:
         - containerPort: 9000
         volumeMounts:

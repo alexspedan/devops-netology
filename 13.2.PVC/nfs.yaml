@@ -1,0 +1,66 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-nfs
+  namespace: production
+  labels:
+    app: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: frontend
+        image: "alexspedan/netologyfrontend:latest"
+        ports:
+        - containerPort: 80
+        env:
+          - name: BASE_URL
+            value: http://backend:9000
+        volumeMounts:
+          - mountPath: "/dynamic"
+            name: nfs
+      volumes:
+       - name: nfs
+         persistentVolumeClaim:
+           claimName: nfs-pvc
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-nfs
+  namespace: production
+  labels:
+    app: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        image: "alexspedan/netologybackend:latest"
+        ports:
+        - containerPort: 9000
+        env:
+          - name: DATABASE_URL
+            value: postgres://postgres:postgres@db-srv:5432/news
+        volumeMounts:
+          - mountPath: "/dynamic"
+            name: pvc-front-back-volume
+      volumes:
+       - name: pvc-front-back-volume
+         persistentVolumeClaim:
+           claimName: pvc-front-back

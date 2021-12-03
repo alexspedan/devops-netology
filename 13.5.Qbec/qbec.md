@@ -15,8 +15,10 @@ tar -C ~/qbec -xzf qbec-linux-amd64.tar.gz
 sudo mv qbec /usr/local
 export PATH=$PATH:/usr/local/qbec
 qbec completion | sudo tee /etc/bash_completion.d/qbec
-Инициирую проект
-qbec init
+>  Инициирую проект
+>  qbec init
+>  Корректирую файлы деплоймента
+>  Проверяю результат
 ![](https://github.com/alexspedan/devops-netology/raw/main/13.5.Qbec/13.5P1.png)
 ![](https://github.com/alexspedan/devops-netology/raw/main/13.5.Qbec/13.5N2.png)
 ![](https://github.com/alexspedan/devops-netology/raw/main/13.5.Qbec/13.5N3.png)

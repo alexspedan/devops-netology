@@ -57,7 +57,7 @@ client.secrets.kv.v2.read_secret_version(
     path='hvac',
 )
 ```
-
+![](https://github.com/alexspedan/devops-netology/raw/main/14.2.Vault/pic1.png)
 ## Задача 2 (*): Работа с секретами внутри модуля
 
 * На основе образа fedora создать модуль;

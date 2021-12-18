@@ -19,7 +19,7 @@ kubectl get pod 14.2-netology-vault -o json | jq -c '.status.podIPs'
 ```
 >          "podIPs": [
             {
-                "ip": "172.17.0.2"
+                "ip": "172.17.0.3"
             }
 
 Запустить второй модуль для использования в качестве клиента

@@ -10,3 +10,13 @@ NAME    TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)    AGE
 vault   ClusterIP   None         <none>        8200/TCP   98s
 
 https://gitlab.com/k11s-os/k8s-lessons/-/tree/main/Vault/manifests
+
+run minikube
+minikube start --vm-driver=docker  
+kubectl run -i --tty fedora --image=fedora --restart=Never -- sh
+
+
+yum install iputils
+yum install nmap
+
+https://pastebin.com/z48T9cGW

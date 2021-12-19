@@ -31,7 +31,8 @@ kubectl get serviceaccount default -o json
 kubectl get serviceaccounts -o json > serviceaccounts.json
 kubectl get serviceaccount netology -o yaml > netology.yml
 ```
-
+![](https://github.com/alexspedan/devops-netology/raw/main/14.4.Service%20account/pic1.png)
+![](https://github.com/alexspedan/devops-netology/raw/main/14.4.Service%20account/pic2.png)
 ### Как удалить сервис-акаунт?
 
 ```
@@ -86,6 +87,9 @@ cat ~/.kube/config
 ```
 kubectl cluster-info
 ```
+![](https://github.com/alexspedan/devops-netology/raw/main/14.4.Service%20account/pic3.png)
+![](https://github.com/alexspedan/devops-netology/raw/main/14.4.Service%20account/pic4.png)
+
 
 ---
 

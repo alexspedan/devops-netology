@@ -30,14 +30,14 @@ kubectl get configmap
 kubectl get configmap nginx-config
 kubectl describe configmap domain
 ```
-![]()
+![](https://github.com/alexspedan/devops-netology/raw/main/14.3.Configmap/workdir/pic1.png)
 ### Как получить информацию в формате YAML и/или JSON?
 
 ```
 kubectl get configmap nginx-config -o yaml
 kubectl get configmap domain -o json
 ```
-![]()
+![](https://github.com/alexspedan/devops-netology/raw/main/14.3.Configmap/workdir/pic2.png)
 ### Как выгрузить карту конфигурации и сохранить его в файл?
 
 ```

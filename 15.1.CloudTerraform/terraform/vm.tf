@@ -15,9 +15,8 @@ resource "yandex_compute_instance" "gateway" {
 
   network_interface {
     # Указан id подсети public
-    subnet_id = yandex_vpc_subnet.public.id
-    nat       = true
-    nat_ip_address = true
+    subnet_id      = yandex_vpc_subnet.public.id
+    nat            = true
   }
 
   metadata = {
@@ -27,7 +26,7 @@ resource "yandex_compute_instance" "gateway" {
 
 resource "yandex_compute_instance" "nat" {
   name = "nat"
-  zone = "ru-central1-b"
+  zone = "ru-central1-a"
 
   resources {
     cores  = 2
@@ -53,8 +52,8 @@ resource "yandex_compute_instance" "nat" {
 }
 
 
-resource "yandex_compute_instance" "private_test" {
-  name = "private_test"
+resource "yandex_compute_instance" "pritester" {
+  name = "privatetester"
   zone = "ru-central1-b"
 
   resources {
@@ -70,7 +69,7 @@ resource "yandex_compute_instance" "private_test" {
 
   network_interface {
     # Указан id подсети private
-    subnet_id  = yandex_vpc_subnet.private.id
+    subnet_id = yandex_vpc_subnet.private.id
 
   }
 
@@ -80,9 +79,9 @@ resource "yandex_compute_instance" "private_test" {
 }
 
 resource "yandex_vpc_route_table" "private-rt" {
-network_id = "${yandex_vpc_network.test.id}"
+  network_id = yandex_vpc_network.netology.id
   static_route {
-     destination_prefix = "0.0.0.0/0"
-     next_hop_address   = "192.168.10.2540"
-    }
+    destination_prefix = "0.0.0.0/0"
+    next_hop_address   = "192.168.10.254"
   }
+}

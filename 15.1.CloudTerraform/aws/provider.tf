@@ -13,8 +13,3 @@ provider "aws" {
   secret_key = $AWS_ACCESS_SECRET
   region = $AWS_DEFAULT_REGION
 }
-
-# Create a VPC
-resource "aws_vpc" "example" {
-  cidr_block = "10.0.0.0/16"
-}

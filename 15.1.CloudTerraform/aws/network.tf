@@ -22,7 +22,7 @@ data "aws_ec2_local_gateway_route_table" "public" {
 }
 
 resource "aws_vpc" "public" {
-  cidr_block = "0.0.0.0/0"
+  cidr_block = "10.10.0.0/16"
 }
 
 resource "aws_ec2_local_gateway_route_table_vpc_association" "public" {
@@ -61,7 +61,7 @@ resource "aws_security_group" "ssh-allowed" {
 }
 
 resource "aws_nat_gateway" "public" {
-  allocation_id = aws_eip.public.id
+  allocation_id = aws_vpc.public.id
   subnet_id     = aws_subnet.public.id
 
   tags = {
@@ -71,7 +71,7 @@ resource "aws_nat_gateway" "public" {
 
 //PRIVATE!!!
 resource "aws_subnet" "private" {
-  vpc_id     = aws_vpc.private.id
+  vpc_id     = aws_vpc.private-vpc.id
   cidr_block = "10.10.2.0/24"
   map_public_ip_on_launch = "true"
   tags = {
@@ -80,9 +80,9 @@ resource "aws_subnet" "private" {
 }
 
 resource "aws_route_table" "private" {
-  vpc_id = aws_vpc.private.id
+  vpc_id = aws_vpc.private-vpc.id
   route {
     cidr_block = "10.10.2.0/24"
-    gateway_id = aws_internet_gateway.public.id
+    gateway_id = aws_internet_gateway.gw.id
   }
 }

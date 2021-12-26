@@ -8,8 +8,4 @@ resource "aws_vpc" "private-vpc" {
     enable_dns_hostnames = "true" #gives you an internal host name
     enable_classiclink = "false"
     instance_tenancy = "default"    
-    
-    tags {
-        Name = "private-test-vpc"
-    }
 }

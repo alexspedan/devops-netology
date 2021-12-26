@@ -58,7 +58,7 @@ resource "aws_security_group" "ssh-allowed" {
         // Put your office or home address in it!
         cidr_blocks = ["0.0.0.0/0"]
     }
-
+}
 
 resource "aws_nat_gateway" "public" {
   allocation_id = aws_eip.public.id
@@ -67,13 +67,13 @@ resource "aws_nat_gateway" "public" {
   tags = {
     Name = "gw NAT"
   }
+}
 
 //PRIVATE!!!
 resource "aws_subnet" "private" {
   vpc_id     = aws_vpc.private.id
   cidr_block = "10.10.2.0/24"
   map_public_ip_on_launch = "true"
-
   tags = {
     Name = "private"
   }
@@ -81,7 +81,6 @@ resource "aws_subnet" "private" {
 
 resource "aws_route_table" "private" {
   vpc_id = aws_vpc.private.id
-
   route {
     cidr_block = "10.10.2.0/24"
     gateway_id = aws_internet_gateway.public.id

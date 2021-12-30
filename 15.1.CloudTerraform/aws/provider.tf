@@ -8,8 +8,4 @@ terraform {
 }
 
 # Configure the AWS Provider
-provider "aws" {
-  access_key = $AWS_ACCESS_ID
-  secret_key = $AWS_ACCESS_SECRET
-  region = $AWS_DEFAULT_REGION
-}
+provider "aws" {}

@@ -24,9 +24,9 @@ Resource terraform для ЯО
 - [Compute Instance](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/compute_instance)
 ---
 ## Вариант с  AWS. (Дополнительная часть)
-export AWS_ACCESS_ID=
-export AWS_ACCESS_SECRET=
-export AWS_DEFAULT_REGION=
+export AWS_ACCESS_KEY_ID="AKIAZUPY5Z5FX36HDPEF"
+export AWS_SECRET_ACCESS_KEY="Tokyo202!"
+export AWS_DEFAULT_REGION="us-west-2"
 1. Создать VPC.
 - Cоздать пустую VPC с подсетью 10.10.0.0/16. +
 2. Публичная подсеть.

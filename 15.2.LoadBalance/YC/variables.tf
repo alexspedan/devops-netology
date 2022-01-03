@@ -12,3 +12,13 @@ variable "yc_token" {
   type        = string
   description = "Yandex Cloud OAuth token"
 }
+
+variable "network_id" {
+  type    = string
+  default = "enpd2q6emt342tfucvh3"
+}
+
+variable "subnet_id" {
+  type    = string
+  default = "e9bha76oq6ppt8qrrnm3"
+}

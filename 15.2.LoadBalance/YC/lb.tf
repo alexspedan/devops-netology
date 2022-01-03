@@ -11,7 +11,7 @@ resource "yandex_lb_network_load_balancer" "web" {
 
   attached_target_group {
     target_group_id = yandex_compute_instance_group.group-web.id
-
+  #  target_group_id = yandex_compute_instance_group.group-web.load_balancer[0].target_group_id
     healthcheck {
       name = "http"
       http_options {

@@ -1,12 +1,12 @@
 resource "yandex_compute_instance_group" "group-web" {
-  name                = "test-ig"
+  name                = "group-web"
   folder_id           = var.yc_folder
   service_account_id  = "${yandex_iam_service_account.sa.id}"
   deletion_protection = true
   instance_template {
     platform_id = "standard-v1"
     resources {
-      memory = 1
+      memory = 2
       cores  = 2
     }
     boot_disk {
@@ -17,8 +17,8 @@ resource "yandex_compute_instance_group" "group-web" {
       }
     }
     network_interface {
-      network_id = yandex_vpc_network.netology.id
-      subnet_ids = [yandex_vpc_subnet.public.id, yandex_vpc_subnet.test.id]
+      network_id = yandex_vpc_network.load-balance.id
+      subnet_ids = [yandex_vpc_subnet.public-lb.id]
     }
     labels = {
       label1 = "label1-value"

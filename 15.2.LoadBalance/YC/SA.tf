@@ -7,7 +7,7 @@ resource "yandex_iam_service_account" "sa" {
 // Grant permissions
 resource "yandex_resourcemanager_folder_iam_member" "sa-editor" {
   folder_id = var.yc_folder
-  role      = "storage.editor"
+  role      = "editor"
   member    = "serviceAccount:${yandex_iam_service_account.sa.id}"
 }
 

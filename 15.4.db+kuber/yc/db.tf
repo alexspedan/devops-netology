@@ -6,9 +6,10 @@ resource "yandex_mdb_mysql_cluster" "netology" {
   version             = "8.0"
   security_group_ids  = [ "<список групп безопасности>" ]
   deletion_protection = true
+  backup_window_start = 23:59
 
   resources {
-    resource_preset_id = "s2.micro"
+    resource_preset_id = "b1.medium"
     disk_type_id       = "network-ssd"
     disk_size          = "20"
   }
@@ -16,7 +17,9 @@ resource "yandex_mdb_mysql_cluster" "netology" {
   database {
     name = "netology_db"
   }
-
+  maintenance_window {
+    type = "ANYTIME"
+  }
   user {
     name     = "netology"
     password = "netology"
@@ -26,8 +29,30 @@ resource "yandex_mdb_mysql_cluster" "netology" {
     }
   }
 
+
   host {
-    zone      = "<зона доступности>"
-    subnet_id = "<идентификатор подсети>"
+    zone      = "ru-central1-a"
+    name      = "host_name_a"
+    priority  = 2
+    subnet_id = yandex_vpc_subnet.a.id
+    assign_public_ip = "true"
   }
-}
+  host {
+    zone                    = "ru-central1-b"
+    name                    = "host_name_b"
+    replication_source_name = "host_name_c"
+    subnet_id               = yandex_vpc_subnet.b.id
+    assign_public_ip = "true"
+  }
+  host {
+    zone      = "ru-central1-c"
+    name      = "host_name_c"
+    subnet_id = yandex_vpc_subnet.c.id
+    assign_public_ip = "true"
+  }
+  host {
+    zone      = "ru-central1-c"
+    name      = "host_name_c_2"
+    subnet_id = yandex_vpc_subnet.c.id
+    assign_public_ip = "true"
+  }

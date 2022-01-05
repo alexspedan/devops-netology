@@ -20,23 +20,15 @@ resource "yandex_compute_instance_group" "group-web" {
       network_id = yandex_vpc_network.load-balance.id
       subnet_ids = [yandex_vpc_subnet.public-lb.id]
     }
-    labels = {
-      label1 = "label1-value"
-      label2 = "label2-value"
+
     }
     metadata = {
-      foo      = "bar"
       ssh-keys = "ubuntu:${file("~/.ssh/id_rsa.pub")}"
-      user-data = "${file("index.html")}"
+      user-data = "${file("./bootstrap.sh")}"
     }
     network_settings {
       type = "STANDARD"
     }
-  }
-
-  variables = {
-    test_key1 = "test_value1"
-    test_key2 = "test_value2"
   }
 
   scale_policy {

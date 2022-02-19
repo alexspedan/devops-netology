@@ -1,3 +1,4 @@
+// add provider
 terraform {
   required_providers {
     yandex = {

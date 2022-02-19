@@ -21,15 +21,15 @@ variable "yc_token" {
   description = "Yandex Cloud OAuth token"
 }
 
-  backend "s3" {
-    endpoint   = "storage.yandexcloud.net"
-    bucket     = "apedan-private-storage-sausage-store"
-    region     = "us-east-1"
-    key        = "terraform.tfstate"
+#  backend "s3" {
+#    endpoint   = "storage.yandexcloud.net"
+#    bucket     = "apedan-private-storage-sausage-store"
+#    region     = "us-east-1"
+#    key        = "terraform.tfstate"
 
-    skip_region_validation      = true
-    skip_credentials_validation = true
-  }
+#    skip_region_validation      = true
+#    skip_credentials_validation = true
+#  }
 }
 
 provider "yandex" {
@@ -51,10 +51,36 @@ resource "yandex_iam_service_account_static_access_key" "diploma-static-key" {
   description        = "static access key for object storage"
 }
 
-// Use keys to create bucket
-resource "yandex_storage_bucket" "diploma" {
-  access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
-  secret_key = yandex_iam_service_account_static_access_key.sa-static-key.secret_key
-  bucket = "diploma-storage"
-  acl    = "private"
+#// Use keys to create bucket
+#resource "yandex_storage_bucket" "diploma" {
+#  access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
+#  secret_key = yandex_iam_service_account_static_access_key.sa-static-key.secret_key
+#  bucket = "diploma-storage"
+#  acl    = "private"
+#}
+
+resource "yandex_compute_instance" "gateway" {
+  name = "gateway"
+  zone = "ru-central1-a"
+
+  resources {
+    cores  = 2
+    memory = 2
+  }
+
+  boot_disk {
+    initialize_params {
+      image_id = "fd80viupr3qjr5g6g9du"
+    }
+  }
+
+  network_interface {
+    # Указан id подсети public
+    subnet_id      = yandex_vpc_subnet.public.id
+    nat            = true
+  }
+
+  metadata = {
+    ssh-keys = "alexsp:${file("~/.ssh/id_rsa.pub")}"
+  }
 }

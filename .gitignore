@@ -37,3 +37,7 @@ terraform.rc
 12.4.ClusterRollOut/repo/kubernetes-for-beginners/
 12.4.ClusterRollOut/Readme.MD
 12.4.ClusterRollOut/Readme.MD
+diploma/learn-terraform-docker-container/tfc-getting-started/
+diploma/learn-terraform-docker-container/.terraform.lock.hcl
+diploma/kubespray/
+diploma/learn-terraform-docker-container/main.tf

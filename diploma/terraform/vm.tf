@@ -9,6 +9,7 @@ resource "yandex_compute_instance" "k8s" {
   boot_disk {
     initialize_params {
       image_id = "fd8uic3g6hoea6qc52d7"
+      size = 14
     }
   }
 
@@ -18,13 +19,13 @@ resource "yandex_compute_instance" "k8s" {
   }
 
   metadata = {
-    ssh-keys = "alekseipedan:${file("~/.ssh/id_rsa.pub")}"
+    ssh-keys = "ubuntu:${file("~/.ssh/id_rsa.pub")}"
   }
 }
 
-resource "yandex_compute_instance" "k8s1" {
+resource "yandex_compute_instance" "worker1" {
   name = "worker1"
-
+  zone           = "ru-central1-b"
   resources {
     cores  = 2
     memory = 2
@@ -33,6 +34,7 @@ resource "yandex_compute_instance" "k8s1" {
   boot_disk {
     initialize_params {
       image_id = "fd8uic3g6hoea6qc52d7"
+      size = 14
     }
   }
 
@@ -42,13 +44,13 @@ resource "yandex_compute_instance" "k8s1" {
   }
 
   metadata = {
-    ssh-keys = "alekseipedan:${file("~/.ssh/id_rsa.pub")}"
+    ssh-keys = "ubuntu:${file("~/.ssh/id_rsa.pub")}"
   }
 }
 
-resource "yandex_compute_instance" "k8s2" {
+resource "yandex_compute_instance" "worker2" {
   name = "worker2"
-
+  zone           = "ru-central1-c"
   resources {
     cores  = 2
     memory = 2
@@ -57,6 +59,7 @@ resource "yandex_compute_instance" "k8s2" {
   boot_disk {
     initialize_params {
       image_id = "fd8uic3g6hoea6qc52d7"
+      size = 14
     }
   }
 
@@ -66,6 +69,6 @@ resource "yandex_compute_instance" "k8s2" {
   }
 
   metadata = {
-    ssh-keys = "alekseipedan:${file("~/.ssh/id_rsa.pub")}"
+    ssh-keys = "ubuntu:${file("~/.ssh/id_rsa.pub")}"
   }
 }

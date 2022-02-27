@@ -13,3 +13,37 @@ ssh-keygen -t rsa -m PEM -f "/Users/alekseipedan/.ssh/service_terraform" -C "ser
 https://gitlab.com/alex.s.pedan/devops-netology/
 terraform login to generate token:
 sUxzhHQO5jr2qQ.atlasv1.BISHz1Bh8UbMMzEvUwkLYlyA2kChP7Ie6sJFtjpcc4btVuZK61s2btMaCDZ9XswyWI4
+
+Разворачиваю кластер Кубернетис:
+inventory файл расположен:
+/Users/alekseipedan/study/Netology/devops-netology/diploma/kubespray/inventory/cluster
+
+Проверяю:
+ansible -i ~/study/Netology/devops-netology/diploma/kubespray/inventory/cluster/inventory.ini all -m ping
+Успешно!
+#### Запускаю плейбук
+ansible-playbook -i inventory/cluster/inventory.ini  --become --become-user=root cluster.yml
+
+#### Создаю Docker file
+/home/alexsp/cv_project/DevOps-CV/Dockerfile
+делаю билд
+sudo docker build -t alexspedan/cv-project:v1 .
+sudo docker build -t alexspedan/cv-project:v2 .
+push
+sudo docker push alexspedan/cv-project:v1
+sudo docker push alexspedan/cv-project:v2
+проверяю свободный порт
+sudo lsof -i -P -n | grep LISTEN
+
+Запускаю контейнер
+docker run -d -p 80:80 alexspedan/cv-project:v1
+docker run -d alexspedan/cv-project:v2
+
+Проверяю 
+
+Делаю деплой:
+kubectl create deploy nginx --image=alexspedan/cv-project:v2 --replicas=1
+Проверяю что есть под
+kubectl get po -o wide
+
+Создаю сервис чтобы сайт было доступен:

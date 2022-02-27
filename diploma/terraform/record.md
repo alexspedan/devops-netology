@@ -52,3 +52,6 @@ kubectl get po -o wide
 https://raw.githubusercontent.com/alexspedan/devops-netology/main/diploma/k8s-configs/cv-service.yaml
 Применяю сервис
 kubectl apply -f https://raw.githubusercontent.com/alexspedan/devops-netology/main/diploma/k8s-configs/cv-service.yaml
+
+Совместный файл сервис и деплоймент
+

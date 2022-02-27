@@ -10,7 +10,7 @@ type: NodePort
 # "select pods with the label 'app' set to 'echo-hostname'"
 # and forward the request to one of them
 selector:
-app: nginx 
+app: cv-deployment 
 ports:
 # Three types of ports for a service
 # nodePort - a static port assigned on each the node

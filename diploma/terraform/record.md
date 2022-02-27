@@ -40,10 +40,15 @@ docker run -d -p 80:80 alexspedan/cv-project:v1
 docker run -d alexspedan/cv-project:v2
 
 Проверяю 
-
+kubectl get po -o wide
+# Создаю namespace stage:
+kubectl config set-context --current --namespace=stage
 Делаю деплой:
-kubectl create deploy nginx --image=alexspedan/cv-project:v2 --replicas=1
+kubectl create deploy cv-deployment --image=alexspedan/cv-project:v2 --replicas=1
 Проверяю что есть под
 kubectl get po -o wide
 
 Создаю сервис чтобы сайт было доступен:
+https://raw.githubusercontent.com/alexspedan/devops-netology/main/diploma/k8s-configs/cv-service.yaml
+Применяю сервис
+kubectl apply -f https://raw.githubusercontent.com/alexspedan/devops-netology/main/diploma/k8s-configs/cv-service.yaml

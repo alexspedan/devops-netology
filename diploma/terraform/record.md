@@ -54,4 +54,21 @@ https://raw.githubusercontent.com/alexspedan/devops-netology/main/diploma/k8s-co
 kubectl apply -f https://raw.githubusercontent.com/alexspedan/devops-netology/main/diploma/k8s-configs/cv-service.yaml
 
 Совместный файл сервис и деплоймент
+https://raw.githubusercontent.com/alexspedan/devops-netology/main/diploma/k8s-configs/deploy.yaml
+Сайт доступен на:
+http://51.250.9.51:30163/
+http://cv.alexpedan.ml:30163/
 
+Проверяю как работает certmanager
+установка прошла с ошибкой
+
+установка kube-prometheus
+kubectl apply --server-side -f manifests/setup
+kubectl config set-context --current --namespace=monitoring
+kubectl get pods
+kubectl expose deployment/grafana --type="NodePort" --port 3000
+
+Графана установлена:
+http://178.154.200.244:30062/login
+
+admin

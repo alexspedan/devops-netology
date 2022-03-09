@@ -72,3 +72,33 @@ kubectl expose deployment/grafana --type="NodePort" --port 3000
 http://178.154.200.244:30062/login
 
 admin
+
+
+# Настройка CI/CD
+Цель:
+
+1. Автоматическая сборка docker образа при коммите в репозиторий с тестовым приложением.
+2. Автоматический деплой нового docker образа.
+
+Можно использовать [teamcity](https://www.jetbrains.com/ru-ru/teamcity/), [jenkins](https://www.jenkins.io/) либо [gitlab ci](https://about.gitlab.com/stages-devops-lifecycle/continuous-integration/)
+
+Ожидаемый результат:
+
+1. Интерфейс ci/cd сервиса доступен по http.
+2. При любом коммите в репозиторие с тестовым приложением происходит сборка и отправка в регистр Docker образа.
+3. При создании тега (например, v1.0.0) происходит сборка и отправка с соответствующим label в регистр, а также деплой соответствующего Docker образа в кластер Kubernetes.
+
+Проверяю репозиторий
+    - docker login -u alex.s.pedan -p glpat-ckb6sG_XzZu5Tr4ikWra registry.gitlab.com
+    - docker build -t registry.gitlab.com/alex.s.pedan/cv-project:1.0.1 .
+    - docker push registry.gitlab.com/alex.s.pedan/cv-project:1.0.1  --  ошибка
+Так работает:
+sudo docker login -u alexspedan -p qRZJ6pb-U-ziDowr2XCCaErN docker.io
+sudo docker build -t alexspedan/cv-project:v2.1 .
+sudo docker push alexspedan/cv-project:v2.1
+Добавляю деплой в кубер:
+обновляю деплой:
+kubectl set image deployment/cv cv=image:2.0.487450358 -неправильный образ
+kubectl set image deployment/frontend cv=alexspedan/cv-project:v2
+kubectl apply -f https://raw.githubusercontent.com/alexspedan/devops-netology/main/diploma/k8s-configs/deploy.yaml - stable
+kubectl rollout restart cv

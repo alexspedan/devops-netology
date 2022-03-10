@@ -17,8 +17,9 @@
 
 ### Создание Kubernetes кластера
 
-Для создания кластера kubernetes использую [Kubespray](https://kubernetes.io/docs/setup/production-environment/tools/kubespray/)
-Вывод команды kubectl get pods --all-namespaces ![]()
+Для создания кластера kubernetes использую https://gitlab.com/alex.s.pedan/devops-netology/-/blob/105b51485f6996347dc0e9e15434015daf793a1a/diploma/inventory.ini
+Установка со стандартными параметрами: в качестве Сontolo plane и etcd используется node1, файл [inventory.ini](https://gitlab.com/alex.s.pedan/devops-netology/-/blob/105b51485f6996347dc0e9e15434015daf793a1a/diploma/inventory.ini)
+Вывод команды kubectl get pods --all-namespaces ![](https://github.com/alexspedan/devops-netology/blob/main/diploma/pics/pods.png)
 
 ---
 ### Создание тестового приложения
@@ -31,9 +32,10 @@
 ### Подготовка cистемы мониторинга и деплой приложения
 Конфигурационные файлы для k8s хранятся в репозитории [k8s configs](https://github.com/alexspedan/devops-netology/tree/main/diploma/k8s-configs)
 Приложение доступно по [ссылке](http://51.250.3.51:30163/) или http://apedan.tk
-Дашборд графаны доступен: [по ссылке](http://51.250.3.51:30062/) 
+Дашборд графаны доступен: [по ссылке](http://51.250.3.51:30062/) login: admin; password: Q7Myfa*GqJ-8u7v77tvo
 [K8s cluster dashboard](http://51.250.3.51:30062/d/efa86fd1d0c121a26444b636a3f509a8/kubernetes-compute-resources-cluster?orgId=1&refresh=10s&from=1646661302739&to=1646664902739)
 
 ### Установка и настройка CI/CD
 Для автоматической сборки и деплоя используется GitlabCI pipeline.
+Образы приложения хранятся в [docker repository](https://hub.docker.com/repository/docker/alexspedan/cv-project/) 
 Для сборки и деплоя в kubernetes используется 2 stage. Pipeline доступен по ссылке: [Gitlab Pipeline](https://gitlab.com/alex.s.pedan/resume-project/-/blob/75eba9ebe6e360318058617afc7a3501531e000a/.gitlab-ci.yml)
